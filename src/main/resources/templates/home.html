@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en" xmlns:th="http://www.thymeleaf.org">
+<head>
+    <meta charset="UTF-8">
+    <title>Home</title>
+</head>
+<body>
+<p>API для получения данных о цене на сырую нефть марки “Юралс” </p>
+<br>
+<p>Все даты нужно вводить в формате yyyy-mm-dd. Например - 2018-05-31.</p>
+<br>
+<form th:action="@{/prices/price}" method="get">
+    <label for ="date">Получить цену на заданную дату</label>
+	<br>
+	<input type="text" name="date" id="date" required="required" />
+	<br>
+    <input class="top submit" type="submit" value="Получить">
+</form>
+<br>
+<form th:action="@{/prices/price/average}" method="get">
+    <label for ="average">Получить cредную цену за промежуток времени</label>
+	<br>
+	<input type="text" name="first" id="average" required="required" />
+	<br>
+	<input type="text" name="second" id="average" required="required" />
+	<br>
+    <input class="top submit" type="submit" value="Получить">
+</form>
+<br>
+<form th:action="@{/prices/price/minmax}" method="get">
+    <label for ="average">Получить максимальную и минимальную цены за промежуток времени</label>
+	<br>
+	<input type="text" name="first" id="minmax" required="required" />
+	<br>
+	<input type="text" name="second" id="minmax" required="required" />
+	<br>
+    <input class="top submit" type="submit" value="Получить">
+</form>
+<br>
+<a th:href="@{/prices/all}">Получить все записи</a>
+</body>
+</html>
